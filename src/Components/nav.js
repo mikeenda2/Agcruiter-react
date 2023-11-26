@@ -1,21 +1,26 @@
-import logo from '../images/AgcruitLogo.jpg'
-const Nav = ({authToken, setShowModal, showModal}) => {
+
+const Nav = ({authToken, setShowModal, showModal, setIsSignUp}) => {
 
     const handleClick = () =>{
         setShowModal(true)
+        setIsSignUp(false)
     }
-    return(
+
+    return (
         <nav>
             <div className="logo-container">
-                <img className="logo" src={logo}/>
+                <h3><span className={"green"}>Ag</span><span className={"yellow"}>Cruiter</span></h3>
             </div>
-
-            {!authToken && <button
-                className={"nav-button"}
-                onClick={handleClick}
-                disabled={showModal}
-            >Log in</button>}
+            {!authToken && (
+                <button
+                    className="nav-button"
+                    onClick={handleClick}
+                    disabled={showModal}
+                >
+                    Log in
+                </button>
+            )}
         </nav>
-    )
-}
-export default Nav
+    );
+};
+export default Nav;
